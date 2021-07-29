@@ -19,3 +19,4 @@ const WatchListNav = (props) => {
 }
 
 export default WatchListNav;
+
