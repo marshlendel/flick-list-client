@@ -1,11 +1,13 @@
 import React from "react"
 import './App.css';
-import TopBar from './components/navbar'
+import WatchListNav from './components/navbar';
+import List from './components/watchlist';
 
 function App() {
   return (
     <div className="App">
-     <TopBar />
+     <WatchListNav />
+     <List />
     </div>
   );
 }

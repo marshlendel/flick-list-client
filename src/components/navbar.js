@@ -2,11 +2,10 @@ import React from 'react';
 import {
   Navbar,
   NavbarBrand,
-  NavItem,
   Button
 } from 'reactstrap';
 
-const TopBar = (props) => {
+const WatchListNav = (props) => {
 
  return (
     <div>
@@ -19,4 +18,4 @@ const TopBar = (props) => {
     );
 }
 
-export default TopBar;
+export default WatchListNav;
