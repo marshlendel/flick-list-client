@@ -12,9 +12,9 @@ function App() {
 
       <WatchListNav />
       <List />
-      {/* <Login /> */}
-      {/* <Searchbar /> */}
       <Footer />
+      {/* <Login /> */}
+
     </div>
   );
 }
