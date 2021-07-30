@@ -44,22 +44,28 @@ let displayMovies = (data) => {
 }
   return (
     <div>
-      <Card style = {{color: 'white'}}>
+      <Card className = "card" style = {{color: 'white'}}>
         <CardBody>
-          <CardTitle tag="h5">My Watch List:</CardTitle>
+          <CardTitle className="title" tag="h5">My Watch List:</CardTitle>
         </CardBody>
         <CardColumns>
         <img width="100%" src={movies} alt="movie1" />
+        <Button onClick="submit">delete</Button>
         </CardColumns>
+        <br />
         <CardColumns>
         <img width="100%" src="/assets/318x180.svg" alt="movie2" />
+        <Button onClick="submit">delete</Button>
         </CardColumns>
+        <br />
         <CardColumns>
         <img width="100%" src="/assets/318x180.svg" alt="movie3" />
+        <Button onClick="submit">delete</Button>
         </CardColumns>
-    
+        < br />
+        <br />
         <CardBody>
-          <CardText>Movies added from our Fetch will be displayed here</CardText>
+          <CardText>Fetch button lives here for now</CardText>
           <Button onClick={handleFetches}>Load My List</Button>
         </CardBody>
       </Card>
