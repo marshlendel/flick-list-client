@@ -25,7 +25,7 @@ const Login = props => {
     const signupFields = () => !login ?
     (
         <div>
-            <label>Username:</label>
+            <label><b>Username:</b></label>
             <br />
             <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)}/>
             <br />
@@ -71,16 +71,15 @@ const Login = props => {
                 <br />
                 <input type="text" id="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
                 <br />
-                <br />
                 <label htmlFor="password"><b>Password:</b></label>
                 <br />
                 <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 <br />
                 <br />
-                <button type="submit" onClick={handleSubmit}><b>Submit</b></button>
+                <button className="button" type="submit" onClick={handleSubmit}><b>Submit</b></button>
                 <br />
                 <br />
-                <button onClick={loginToggle}><b>Login | Sign Up</b></button>
+                <button className="button" onClick={loginToggle}><b>Login | Sign Up</b></button>
             </form>
         </div>
     )

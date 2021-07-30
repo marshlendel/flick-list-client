@@ -1,10 +1,10 @@
 import React from 'react';
 import {useState} from "react";
 import {
-  Card, CardText, CardBody,
-  CardTitle,
-  CardColumns,
-  Button
+    Card, CardText, CardBody,
+    CardTitle,
+    CardColumns,
+    Button
 } from 'reactstrap';
 
 
@@ -13,9 +13,9 @@ const [movies, setMovies] = useState([])
 const [movieList, setMovieList] = useState([])
 
 let handleFetches = () => {
-  let url = "https://api.themoviedb.org/3/movie/popular?api_key=e6564d42419f5d069c69139088835a5e&language=en-US&page=1"
+    let url = "https://api.themoviedb.org/3/movie/popular?api_key=e6564d42419f5d069c69139088835a5e&language=en-US&page=1"
 
-  fetch(url, {
+    fetch(url, {
     method: "GET",
     headers: new Headers({
         "Content-type": "application/json",
@@ -29,6 +29,7 @@ let handleFetches = () => {
   })
   // console.log(movies)
   // .catch(err => console.log(err))
+
 }
   
 let displayMovies = (data) => {
@@ -37,7 +38,6 @@ let displayMovies = (data) => {
   let result = flicks.map((item, index)=> {
     // console.log(index, item)
     console.log(item.original_title)
-    
   })
 
 
@@ -63,8 +63,9 @@ let displayMovies = (data) => {
           <Button onClick={handleFetches}>Load My List</Button>
         </CardBody>
       </Card>
+
     </div>
-  );
+    );
 };
 
 export default List;
