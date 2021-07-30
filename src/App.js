@@ -11,6 +11,18 @@ function App() {
     <div className="App">
 
       <WatchListNav />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <List />
       <Footer />
       {/* <Login /> */}
