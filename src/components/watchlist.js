@@ -10,6 +10,7 @@ import {
 
 const List = (props) => {
 const [movies, setMovies] = useState([])
+const [movieList, setMovieList] = useState([])
 
 let handleFetches = () => {
     let url = "https://api.themoviedb.org/3/movie/popular?api_key=e6564d42419f5d069c69139088835a5e&language=en-US&page=1"
@@ -20,34 +21,49 @@ let handleFetches = () => {
         "Content-type": "application/json",
         "Authorization": props.sessionToken
     })
-    })
-    .then((res) => res.json())
-    .then(json => setMovies(json.results))
-    console.log(movies[0].original_title)
-    .catch(err => console.log(err))
+  })
+  .then((res) => res.json())
+  .then(data => {
+    displayMovies(data)
+    setMovies(data)
+  })
+  // console.log(movies)
+  // .catch(err => console.log(err))
+
 }
-    
-return (
+  
+let displayMovies = (data) => {
+  let flicks = data.results
+  // console.log(flicks)
+  let result = flicks.map((item, index)=> {
+    // console.log(index, item)
+    console.log(item.original_title)
+  })
+
+
+}
+  return (
     <div>
-        <Card style = {{color: 'white'}}>
-            <CardBody>
-                <CardTitle tag="h5">Watch List:</CardTitle>
-            </CardBody>
-            <CardColumns>
-                <img width="100%" src={movies[0]} alt="movie1" />
-            </CardColumns>
-            <CardColumns>
-                <img width="100%" src="/assets/318x180.svg" alt="movie2" />
-            </CardColumns>
-            <CardColumns>
-                <img width="100%" src="/assets/318x180.svg" alt="movie3" />
-            </CardColumns>
+      <Card style = {{color: 'white'}}>
+        <CardBody>
+          <CardTitle tag="h5">My Watch List:</CardTitle>
+        </CardBody>
+        <CardColumns>
+        <img width="100%" src={movies} alt="movie1" />
+        </CardColumns>
+        <CardColumns>
+        <img width="100%" src="/assets/318x180.svg" alt="movie2" />
+        </CardColumns>
+        <CardColumns>
+        <img width="100%" src="/assets/318x180.svg" alt="movie3" />
+        </CardColumns>
     
-            <CardBody>
-            <CardText>Movies added from out Fetch will be displayed here</CardText>
-            <Button className="button" onClick={handleFetches}><b>Load My List</b></Button>
-            </CardBody>
-        </Card>
+        <CardBody>
+          <CardText>Movies added from our Fetch will be displayed here</CardText>
+          <Button onClick={handleFetches}>Load My List</Button>
+        </CardBody>
+      </Card>
+
     </div>
     );
 };
