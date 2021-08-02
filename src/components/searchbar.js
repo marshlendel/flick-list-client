@@ -22,15 +22,16 @@ const Search = (props) => {
         .then(json => {
             setSearch(json)
             setSearchList(search.results.map(results => (
-                <div key={results.id}>
+                <div className="searchContainer" key={results.id}>
                     <h3>{results.title}</h3>
                     <p>Overview: {results.overview}</p>
                     <h5>Release Date: {results.release_date}</h5>
                     <img src={'https://image.tmdb.org/t/p/w200/' + results.poster_path} alt="Poster"/>
-                    <hr />
+                    <br />
+                    <br />
+                    <button className="button">Add to WatchList</button>
                 </div>
             )))
-
         })
         .catch((err) => console.log(err))
 }
@@ -38,7 +39,7 @@ return (
     <div>
     <Card className="searchCard" style = {{color: 'white'}}>
         <CardBody>
-        <img src={FlickLogo} alt ="Logo" width="400" height="400" style={{marginTop: '-4%'}} className="d-inline-block align-center"/> {' '}
+        {/* <img src={FlickLogo} alt ="Logo" width="400" height="400" style={{marginTop: '-4%'}} className="d-inline-block align-center"/> {' '} */}
         <CardTitle tag="h2">Find movies for my watchlist:</CardTitle>
         </CardBody>
         <CardColumns>
@@ -46,10 +47,9 @@ return (
         <Button className="button" onClick={dataFetch}>Search</Button>
         </CardColumns>
         <CardBody><CardText tag="h3"> Movie search results: {searchList}</CardText>
-        <Button className="button" onClick={dataFetch}>Add to my list</Button>
+        <br />
         </CardBody>
     </Card>
-
     </div>
     );
 };
