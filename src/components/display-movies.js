@@ -18,7 +18,7 @@ const MovieList = (props) => {
     const movieMapper = () => {
         return props.movie.map((movie, index) => {
           return(
-            <tr key = {index}>
+            <tr key = {movie.id}>
               <th scope = "row">{movie.id}</th>
               <td>{movie.title}</td>
               <td>{movie.year}</td>
