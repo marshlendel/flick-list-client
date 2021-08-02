@@ -24,7 +24,7 @@ function App() {
       <br />
       <br />
       <Search />
-      {/* <List /> */}
+      <List />
       <Footer />
 
     </div>
