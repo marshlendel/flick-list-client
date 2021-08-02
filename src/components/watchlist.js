@@ -11,6 +11,8 @@ import {
 
 const List = (props) => {
 const [movies, setMovies] = useState([])
+const [updateActive, setUpdateActive] = useState(0)
+const [editMovie, setEditMovie] = useState({})
 
 let fetchMovies = () => {
     fetch('http://localhost:4000/list/', {

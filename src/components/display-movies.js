@@ -15,6 +15,7 @@ const MovieList = (props) => {
             props.fetchMovies()
         })
     }
+   
     const movieMapper = () => {
         return props.movie.map((movie, index) => {
           return(
