@@ -1,24 +1,45 @@
-import React from 'react';
-import FlickLogo from '../assets/FlickLogo.png';
+import React from "react";
+import FlickLogo from "../assets/FlickLogo.png";
+import Logout from "./logout";
+
+
 import {
-    Navbar,
-    NavbarBrand,
-    Button
-} from 'reactstrap';
+  Navbar,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  Button,
+  NavbarText
+} from "reactstrap";
 
 const WatchListNav = (props) => {
 
+  if (props.token) {
     return (
-    <div className="nav-container">
-        <Navbar className="navbar" style = {{padding: '1px', backgroundColor: 'black', height: '50px', textAlign: 'left'}} fixed='top' bg-primary light expand="md">
-        <NavbarBrand className="flick"><b></b></NavbarBrand>
-        <img src={FlickLogo} alt ="Logo" width="300" height="300" style={{marginTop: '-4%'}} className="d-inline-block align-top"/> {' '}
-        <Button className="button" outline color="primary" style={{marginLeft: '30%', marginTop: '0%'}}><b>My Watch List</b></Button>{' '}
-        <Button className="button" outline color="primary" style={{float: 'right', padding: '10px', marginTop: '3%', marginRight: '5%'}}><b>Logout</b></Button>{' '}
-    </Navbar>
-    </div>
+      <div className="nav-container">
+         <Navbar dark navbar-expand="md">
+        <NavbarBrand href="/"><img alt="logo" src={FlickLogo} height="200px" /></NavbarBrand>
+          <Nav className="mr-auto" navbar>
+            <NavItem>
+              <Button className="button" type="button">Watch List</Button>
+            </NavItem>
+          </Nav>
+          <NavbarText><Logout clearSession={props.clearSession}/></NavbarText>
+      </Navbar>
+     
+      </div>
+    )
+  } else {
+    return (
+      <div>
+        <Navbar dark padding="10px">
+        <NavbarBrand href="/"><img alt="logo" src={FlickLogo} height="200px" /></NavbarBrand>
+          <Nav navbar>
+          </Nav>
+      </Navbar>
+      </div>
     );
-}
+  }
+};
 
 export default WatchListNav;
-

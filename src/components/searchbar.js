@@ -7,11 +7,11 @@ import {
     CardColumns,
     Button
 } from 'reactstrap';
-import FlickLogo from '../assets/FlickLogo.png';
 
 const Search = (props) => {
     const [search, setSearch] = useState([])
     const [searchList, setSearchList] = useState([])
+    
 
     let inputValue = React.createRef();
 
@@ -38,7 +38,7 @@ const Search = (props) => {
 }
 return (
     <div>
-    <Card className="searchCard" style = {{color: 'white'}}>
+    <Card className="searchCard">
         <CardBody>
         {/* <img src={FlickLogo} alt ="Logo" width="400" height="400" style={{marginTop: '-4%'}} className="d-inline-block align-center"/> {' '} */}
         <CardTitle tag="h2">Find movies for my watchlist:</CardTitle>
