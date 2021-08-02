@@ -1,5 +1,5 @@
 import React from 'react';
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import {
     Card, CardText, CardBody,
     CardTitle,
@@ -10,7 +10,6 @@ import {
 
 const List = (props) => {
 const [movies, setMovies] = useState([])
-const [movieList, setMovieList] = useState([])
 
 let handleFetches = () => {
     let url = "https://api.themoviedb.org/3/movie/popular?api_key=e6564d42419f5d069c69139088835a5e&language=en-US&page=1"
@@ -24,49 +23,46 @@ let handleFetches = () => {
   })
   .then((res) => res.json())
   .then(data => {
-    displayMovies(data)
+    // displayMovies(data)
     setMovies(data)
   })
-  // console.log(movies)
-  // .catch(err => console.log(err))
+  console.log(movies)
 
 }
-  
-let displayMovies = (data) => {
-  let flicks = data.results
-  // console.log(flicks)
-  let result = flicks.map((item, index)=> {
-    // console.log(index, item)
-    console.log(item.original_title)
-  })
+ useEffect(()=> {
+   handleFetches()
+ }, []) 
 
-
-}
   return (
-    <div>
-      <Card style = {{color: 'white'}}>
+    <div> 
+      <Card className = "card" style = {{color: 'white'}}>
         <CardBody>
-          <CardTitle tag="h5">My Watch List:</CardTitle>
+          <CardTitle className="title" tag="h5">My Watch List:</CardTitle>
         </CardBody>
         <CardColumns>
         <img width="100%" src={movies} alt="movie1" />
+        <Button onClick="submit">delete</Button>
         </CardColumns>
+        <br />
         <CardColumns>
         <img width="100%" src="/assets/318x180.svg" alt="movie2" />
+        <Button onClick="submit">delete</Button>
         </CardColumns>
+        <br />
         <CardColumns>
         <img width="100%" src="/assets/318x180.svg" alt="movie3" />
+        <Button onClick="submit">delete</Button>
         </CardColumns>
-    
+        < br />
+        <br />
         <CardBody>
-          <CardText>Movies added from our Fetch will be displayed here</CardText>
-          <Button onClick={handleFetches}>Load My List</Button>
+          <CardText>Look at my list!</CardText>
         </CardBody>
       </Card>
-
     </div>
     );
 };
 
 export default List;
+
 
