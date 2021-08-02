@@ -1,7 +1,6 @@
 .App {
   text-align: center;
   background-image: linear-gradient(180deg, black, purple);
-  height: 100vh;
   height: 100%;
   background-repeat: no-repeat;
   color: white;
@@ -36,19 +35,25 @@
   font-size: 12pt;
 }
 
-/*Search Card*/
-/* .searchCard{
-  border: 1px groove white;
-  border-radius: 30px;
-  margin-top: 5px;
-  margin-left: auto;
-  margin-right: auto;
-  align-items: center;
-  padding: 15%;
-  width: 20%;
-  position: relative;
- 
-} */
+
+.flick {
+  font-size: 24px;
+
+} 
+ /*Watchlist card*/
+ .card {
+   border: 4px solid white;
+   margin:auto;
+   width: 400px;
+   height: 400px;
+   font-family:Verdana, Geneva, Tahoma, sans-serif;
+ }
+
+ .title {
+   font-size: larger;
+ }
+
+
 .searchInput {
   background-color: transparent;
   color: white;
@@ -56,23 +61,3 @@
   font-size: 14pt;
   border: 1px, solid white;
 }
-
-.searchContainer {
-  border: 1px groove white;
-  padding: 5%;
-  border-radius: 50px;
-  box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1),
-  0 0  0 2px rgb(255,255,255),
-  0.3em 0.3em 1em rgba(0,0,0,0.3);;
-  margin-top: 5px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 20%;
-  position: relative;
-}
-
-
-
-
-
-
