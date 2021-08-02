@@ -11,7 +11,6 @@ import {
 const List = (props) => {
 const [movies, setMovies] = useState([])
 
-
 let handleFetches = () => {
     let url = "https://api.themoviedb.org/3/movie/popular?api_key=e6564d42419f5d069c69139088835a5e&language=en-US&page=1"
 
@@ -33,8 +32,6 @@ let handleFetches = () => {
  useEffect(()=> {
    handleFetches()
  }, []) 
-
-
 
   return (
     <div> 
@@ -62,7 +59,6 @@ let handleFetches = () => {
           <CardText>Look at my list!</CardText>
         </CardBody>
       </Card>
-
     </div>
     );
 };
