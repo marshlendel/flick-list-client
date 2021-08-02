@@ -10,9 +10,11 @@ import {
 import FlickLogo from '../assets/FlickLogo.png';
 import Add from './addedMovie'
 
+
 const Search = (props) => {
     const [search, setSearch] = useState([])
     const [searchList, setSearchList] = useState([])
+    
 
     let inputValue = React.createRef();
 
@@ -39,7 +41,7 @@ const Search = (props) => {
 }
 return (
     <div>
-    <Card className="searchCard" style = {{color: 'white'}}>
+    <Card className="searchCard">
         <CardBody>
         <CardTitle tag="h2">Find movies for my watchlist:</CardTitle>
         </CardBody>
