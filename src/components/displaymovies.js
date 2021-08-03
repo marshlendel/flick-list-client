@@ -1,7 +1,7 @@
 import React from 'react';
 import {Table, Button} from 'reactstrap';
 
-const MovieList = (props) => {
+const DisplayMovies = (props) => {
     console.log(props.movie)
     const deleteMovie = (movie)=> {
         fetch(`http://localhost:4000/list/delete/${movie.id}`, {
@@ -51,4 +51,4 @@ return(
 )
 
 }
-export default MovieList
+export default DisplayMovies;

@@ -5,6 +5,7 @@ import WatchListNav from './components/navbar';
 import Footer from'./components/footer';
 import Search from "./components/searchbar";
 import Login from "./components/login";
+import List from './components/watchlist';
 
 
 

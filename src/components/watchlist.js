@@ -1,13 +1,14 @@
 import React from 'react';
 import {useState, useEffect} from "react";
 // import {Container, Row, Col} from 'reactstrap';
-import MovieList from './display-movies';
+import MovieList from './displaymovies';
 import {
     Card,CardBody,
     CardTitle,
     CardColumns,
 } from 'reactstrap';
-import EditMovie from './edit-movie-list';
+import EditMovie from './editmovie';
+import Search from './searchbar';
 
 
 const List = (props) => {
