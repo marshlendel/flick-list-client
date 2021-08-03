@@ -27,7 +27,6 @@ const WatchListNav = (props) => {
           </Nav>
           <NavbarText><Logout clearSession={props.clearSession}/></NavbarText>
       </Navbar>
-     
       </div>
     )
   } else {
