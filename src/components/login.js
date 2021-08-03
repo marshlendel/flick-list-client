@@ -32,7 +32,7 @@ const Login = props => {
         </div>
     ) : null
 
-    const handleSubmit = event => {
+    const handleSubmit = (event) => {
         event.preventDefault()
 
         let reqBody = login ?

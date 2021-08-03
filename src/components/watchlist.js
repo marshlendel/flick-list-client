@@ -6,39 +6,29 @@ import {
     Card,CardBody,
     CardTitle,
     CardColumns,
+    CardText,
+    Button
 } from 'reactstrap';
 import EditMovie from './editmovie';
-import Search from './searchbar';
 
 
 const List = (props) => {
-const [movies, setMovies] = useState([])
-const [updateActive, setUpdateActive] = useState(0)
-const [editMovie, setEditMovie] = useState({})
+const [movies, setMovies] = useState()
 
 let fetchMovies = () => {
     fetch('http://localhost:4000/list/', {
     method: "GET",
     headers: new Headers({
         "Content-type": "application/json",
-        "Authorization": `Bearer ${props.token}`
+        "Authorization": props.token
     })
   })
   .then((res) => res.json())
   .then((data) => {
-    setMovies(data)
+    setMovies(data.title)
+    console.log(movies)
   })
-// console.log(movies)
-}
-const editUpdateMovie = (movie) => {
-  setEditMovie(movie);
-  console.log(movie);
-}
-const updateOn = () => {
-  setUpdateActive(true);
-}
-const updateOff = () => {
-  setUpdateActive(false);
+  .catch(err => console.log(err))
 }
 
 useEffect(()=> {
@@ -48,13 +38,14 @@ useEffect(()=> {
 
   return (
     <div>
+      {movies}
     <Card className="watchcard" style = {{color: 'white'}}>
       <CardBody>
         <CardTitle className="title" tag = "h5">My Watch List:</CardTitle>
+        <Button className="button" onClick={fetchMovies}>Display</Button>
       </CardBody>
       <CardColumns>
-          <MovieList movie = {movies} editUpdateMovie={editUpdateMovie} updateOn={updateOn} fetchMovies={fetchMovies} token={props.token}/>
-          {updateActive ? <EditMovie editMovie={editMovie} updateOff={updateOff} token={props.token} fetchMovies={fetchMovies} /> : <></>}
+       <CardText> </CardText>
       </CardColumns>
     </Card>
     </div>
