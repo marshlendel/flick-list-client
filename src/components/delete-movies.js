@@ -4,7 +4,7 @@
 const deleteMovie = (props) => {
     console.log(props.movie);
 
-    const fetch_url = `http://localhost:4000/list/delete/{}`;
+    const fetch_url = `http://localhost:4000/list/delete/${props.deleteMovie.id}`;
         fetch(fetch_url, {
             method: 'DELETE',
             headers: new Headers({

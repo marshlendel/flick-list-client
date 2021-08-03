@@ -71,6 +71,8 @@ return (
         </CardBody>
         <CardColumns>
         <input ref={inputValue} className="searchInput" type="text" placeholder="Search movies..."/>
+        <br />
+        <br />
         <Button className="button" onClick={dataFetch}>Search</Button>
         </CardColumns>
         <CardBody><CardText tag="h3"> Movie search results: {searchList}</CardText>
