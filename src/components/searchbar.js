@@ -33,7 +33,7 @@ const Search = (props) => {
             })
         })
         .then(res => res.json())
-        .then(json => alert(json.message))
+        .then(json => alert(`${title} ${json.message}`))
         .catch(err => console.log(err))
     } 
 
@@ -52,7 +52,7 @@ const Search = (props) => {
                     <img src={'https://image.tmdb.org/t/p/w200/' + results.poster_path} alt="Poster"/>
                     <br />
                     <br />
-                    <button className="button" onClick={()=> addMovie(results)}>Add to WatchList</button>
+                    <button className="button" onClick={()=> addMovie(results)}>Add to Watch List</button>
                 </div>
             )))
         })
