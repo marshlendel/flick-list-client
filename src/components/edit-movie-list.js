@@ -19,7 +19,22 @@ const EditMovie = (props) => {
         props.updateActive();
     })
     }
-    
+    return (
+       <Modal isOpen={true} >
+           <ModalHeader> Watch list</ModalHeader>
+           <Form onSubmit = {UpdateMovie} >
+           <FormGroup row>
+
+          <FormGroup check>
+            <Label check>
+              <Input type="checkbox" id="checkbox2" />{' '}
+              Watched
+            </Label>
+          </FormGroup>
+      </FormGroup>
+           </Form>
+       </Modal> 
+    )
     
 
 }

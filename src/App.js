@@ -40,6 +40,7 @@ function App() {
     <div className="App">
     <WatchListNav clearSession = {clearLocalStorage} token={sessionToken}/>
    {renderController()}
+   <List />
    <Footer />
     </div>
   );

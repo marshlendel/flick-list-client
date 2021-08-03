@@ -7,6 +7,7 @@ import {
     CardTitle,
     CardColumns,
 } from 'reactstrap';
+import EditMovie from './edit-movie-list';
 
 
 const List = (props) => {
@@ -26,8 +27,19 @@ let fetchMovies = () => {
   .then((data) => {
     setMovies(data)
   })
-console.log(movies)
+// console.log(movies)
 }
+const editUpdateMovie = (movie) => {
+  setEditMovie(movie);
+  console.log(movie);
+}
+const updateOn = () => {
+  setUpdateActive(true);
+}
+const updateOff = () => {
+  setUpdateActive(false);
+}
+
 useEffect(()=> {
      fetchMovies()
    }, []) 
@@ -40,7 +52,8 @@ useEffect(()=> {
         <CardTitle className="title" tag = "h5">My Watch List:</CardTitle>
       </CardBody>
       <CardColumns>
-          <MovieList movie = {movies} token={props.token}/>
+          <MovieList movie = {movies} editUpdateMovie={editUpdateMovie} updateOn={updateOn} fetchMovies={fetchMovies} token={props.token}/>
+          {updateActive ? <EditMovie editMovie={editMovie} updateOff={updateOff} token={props.token} fetchMovies={fetchMovies} /> : <></>}
       </CardColumns>
     </Card>
     </div>
