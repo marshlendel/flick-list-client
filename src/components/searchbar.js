@@ -8,7 +8,7 @@ import {
     Button
 } from 'reactstrap';
 
-const Search = (props) => {
+const Searchbar = (props) => {
     const [search, setSearch] = useState([])
     const [searchList, setSearchList] = useState([])
 
@@ -81,4 +81,4 @@ return (
     );
 };
 
-export default Search;
+export default Searchbar;
