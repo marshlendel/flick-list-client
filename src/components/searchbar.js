@@ -7,9 +7,6 @@ import {
     CardColumns,
     Button
 } from 'reactstrap';
-import FlickLogo from '../assets/FlickLogo.png';
-import Add from './addedMovie'
-
 
 const Search = (props) => {
     const [search, setSearch] = useState([])
