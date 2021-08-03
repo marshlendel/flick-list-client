@@ -22,7 +22,7 @@ const WatchListNav = (props) => {
         <NavbarBrand href="/"><img alt="logo" src={FlickLogo} height="200px" /></NavbarBrand>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <Button className="button" type="button">Watch List</Button>
+              <Button className="button" type="button" onClick={() => props.toggler()}>Watch List</Button>
             </NavItem>
           </Nav>
           <NavbarText><Logout clearSession={props.clearSession}/></NavbarText>

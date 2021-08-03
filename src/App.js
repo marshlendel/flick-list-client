@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react"
+import DisplayList from "./displayList";
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import WatchListNav from './components/navbar';
@@ -7,39 +8,48 @@ import Searchbar from "./components/searchbar";
 import Login from "./components/login";
 
 
-
 function App() {
-
+  const [watchListToggle, setWatchListToggle] = useState(false)
   const [sessionToken, setSessionToken] = useState(undefined)
-
+ 
   useEffect(() => {
     if(localStorage.getItem("token")) {
       setSessionToken(localStorage.getItem("token"))
     }
   }, [])
 
-      
+  
+let watchListToggler = () => {
+  setWatchListToggle(!watchListToggle)
+}
 
   const updateLocalStorage = newToken => {
     localStorage.getItem("token", newToken)
     setSessionToken(newToken)
   }
 
-  const clearLocalStorage = () => {
+  const clearSession = async () => {
+    await setWatchListToggle(false)
     localStorage.clear()
     setSessionToken(undefined)
   }
 
   const renderController = () => {
-    return sessionToken !== undefined ?
-    <Searchbar sessionToken={sessionToken}/>
-    : <Login updateLocalStorage= {updateLocalStorage} />
+  return watchListToggle === false ? <Searchbar sessionToken={sessionToken}/>
+   : <DisplayList />
   }
-  
-  return (
+
+  return (   
     <div className="App">
-    <WatchListNav clearSession = {clearLocalStorage} token={sessionToken}/>
-    {renderController()}
+    <WatchListNav clearSession = {clearSession} token={sessionToken} toggler={watchListToggler}/>
+    {
+      sessionToken === undefined &&
+      <Login updateLocalStorage= {updateLocalStorage} />
+    }
+    {
+      (sessionToken) &&
+      renderController()
+    }
     <Footer />
     </div>
   );

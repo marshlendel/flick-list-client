@@ -47,8 +47,8 @@ const Searchbar = (props) => {
             setSearchList(search.results.map(results => (
                 <div className="searchContainer" key={results.id}>
                     <h3>{results.title}</h3>
-                    <p>Overview: {results.overview}</p>
-                    <h5>Release Date: {results.release_date}</h5>
+                    <p>{results.overview}</p>
+                    <p>{results.release_date.slice(0, 4)}</p>
                     <img src={'https://image.tmdb.org/t/p/w200/' + results.poster_path} alt="Poster"/>
                     <br />
                     <br />
