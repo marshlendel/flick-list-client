@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react"
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import WatchListNav from './components/navbar';
+import List from './components/watchlist';
 import Footer from'./components/footer';
 import Search from "./components/searchbar";
 import Login from "./components/login";
@@ -17,6 +18,8 @@ function App() {
       setSessionToken(localStorage.getItem("token"))
     }
   }, [])
+
+      
 
   const updateLocalStorage = newToken => {
     localStorage.getItem("token", newToken)

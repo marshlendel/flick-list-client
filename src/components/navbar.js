@@ -16,6 +16,7 @@ const WatchListNav = (props) => {
 
   if (props.token) {
     return (
+
       <div className="nav-container">
          <Navbar dark navbar-expand="md">
         <NavbarBrand href="/"><img alt="logo" src={FlickLogo} height="200px" /></NavbarBrand>
