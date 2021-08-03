@@ -13,27 +13,28 @@ import EditMovie from './editmovie';
 
 
 const List = (props) => {
-const [movies, setMovies] = useState()
+const [movies, setMovies] = useState([])
 
 let fetchMovies = () => {
     fetch('http://localhost:4000/list/', {
     method: "GET",
     headers: new Headers({
         "Content-type": "application/json",
-        "Authorization": props.token
+        "Authorization": props.sessionToken
     })
   })
   .then((res) => res.json())
-  .then((data) => {
-    setMovies(data.title)
+  .then(data => {
+    setMovies(data)
+    // setMovies(movies.map(results =>(
     console.log(movies)
   })
   .catch(err => console.log(err))
 }
 
-useEffect(()=> {
-     fetchMovies()
-   }, []) 
+// useEffect(()=> {
+//      fetchMovies()
+//    }, []) 
 
 
   return (

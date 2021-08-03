@@ -11,7 +11,7 @@ import List from './components/watchlist';
 
 function App() {
 
-  const [sessionToken, setSessionToken] = useState("")
+  const [sessionToken, setSessionToken] = useState(undefined)
 
   useEffect(() => {
     if(localStorage.getItem("token")) {
@@ -19,7 +19,6 @@ function App() {
     }
   }, [])
 
-      
 
   const updateLocalStorage = (newToken) => {
     localStorage.getItem("token", newToken)
@@ -32,16 +31,16 @@ function App() {
     setSessionToken(undefined)
   }
 
-  // const renderController = () => {
-  //   return sessionToken !== undefined ?
-  //   <Search sessionToken={sessionToken}/>
-  //   : <Login updateLocalStorage= {updateLocalStorage} />
-  // }
   const renderController = () => {
-    return sessionToken === localStorage.getItem("token") ?
-    <Search sessionToken = {sessionToken} /> : 
-    <Login updateLocalStorage = {updateLocalStorage} />
+    return sessionToken !== undefined ?
+    <Search sessionToken={sessionToken}/>
+    : <Login updateLocalStorage= {updateLocalStorage} />
   }
+  // const renderController = () => {
+  //   return sessionToken === localStorage.getItem("token") ?
+  //   <Search sessionToken = {sessionToken} /> : 
+  //   <Login updateLocalStorage = {updateLocalStorage} />
+  // }
   
   return (
     <div className="App">

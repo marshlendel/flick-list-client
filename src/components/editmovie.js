@@ -11,12 +11,11 @@ const EditMovie = (props) => {
         body: JSON.stringify({list: {watched: editWatched}}),
         headers: new Headers({
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${props.token}`
+            'Authorization':  `${props.token}`
         })
     })
     .then ((res)=> {
         props.fetchMovies();
-        props.updateActive();
     })
     }
     return (
@@ -35,7 +34,5 @@ const EditMovie = (props) => {
            </Form>
        </Modal> 
     )
-    
-
 }
 export default EditMovie
