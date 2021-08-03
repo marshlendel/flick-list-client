@@ -11,9 +11,6 @@ import {
 const Search = (props) => {
     const [search, setSearch] = useState([])
     const [searchList, setSearchList] = useState([])
-    
-
-    let inputValue = React.createRef();
 
     let dataFetch = () => {
         let url = "https://api.themoviedb.org/3/search/movie?api_key=e6564d42419f5d069c69139088835a5e&language=en-US&query=" + inputValue.current.value + "&page=1&include_adult=false"
@@ -30,12 +27,19 @@ const Search = (props) => {
                     <img src={'https://image.tmdb.org/t/p/w200/' + results.poster_path} alt="Poster"/>
                     <br />
                     <br />
-                    <button className="button">Add to WatchList</button>
+                    <button className="button" onClick={()=> {
+                        console.log(results.title)
+                    }}>Add to WatchList</button>
                 </div>
             )))
         })
         .catch((err) => console.log(err))
 }
+    
+
+    let inputValue = React.createRef();
+
+    
 return (
     <div>
     <Card className="searchCard">
