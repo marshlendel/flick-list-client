@@ -57,7 +57,10 @@ const Login = props => {
             })
         })
         .then(response => response.json())
-        .then(json => props.updateLocalStorage(json.token))
+        .then(json => {
+            alert(json.message)
+            props.updateLocalStorage(json.token)
+        })
         .catch(err => console.log(err))
     }
 

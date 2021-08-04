@@ -9,7 +9,6 @@ import {
 } from 'reactstrap';
 
 const Searchbar = (props) => {
-    const [search, setSearch] = useState([])
     const [searchList, setSearchList] = useState([])
 
     let addMovie = (data) => {
@@ -43,9 +42,8 @@ const Searchbar = (props) => {
         fetch(url)
         .then(res => res.json())
         .then(json => {
-            setSearch(json)
-            setSearchList(search.results.map(results => (
-                <div className="searchContainer" key={results.id}>
+            setSearchList(json.results.map(results => {
+               return <div className="searchContainer" key={results.id}>
                     <h3>{results.title}</h3>
                     <p>{results.overview}</p>
                     <p>{results.release_date.slice(0, 4)}</p>
@@ -54,11 +52,11 @@ const Searchbar = (props) => {
                     <br />
                     <button className="button" onClick={()=> addMovie(results)}>Add to Watch List</button>
                 </div>
-            )))
+            }))
         })
         .catch((err) => console.log(err))
 }
-    
+
 
     let inputValue = React.createRef();
 
@@ -71,7 +69,7 @@ return (
         </CardBody>
         <CardColumns>
         <input ref={inputValue} className="searchInput" type="text" placeholder="Search movies..."/>
-        <Button className="button" onClick={dataFetch}>Search</Button>
+        <Button className="button" onClick={() => dataFetch()}>Search</Button>
         </CardColumns>
         <CardBody><CardText tag="h3"> Movie search results: {searchList}</CardText>
         <br />
