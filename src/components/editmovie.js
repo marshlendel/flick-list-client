@@ -4,8 +4,7 @@ import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody} fr
 const EditMovie = (props) => {
     const [editWatched, setEditWatched] = useState(props.setEditMovie.watched);
 
-    const UpdateMovie = (event, movie) => {
-        event.preventDefault();
+    let UpdateMovie = () => {
         fetch(`http://localhost:4000/list/update/${props.EditMovie.id}`, {
         method: 'PUT',
         body: JSON.stringify({list: {watched: editWatched}}),

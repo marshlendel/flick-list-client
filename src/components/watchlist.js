@@ -3,11 +3,12 @@ import {useState, useEffect} from "react";
 // import {Container, Row, Col} from 'reactstrap';
 import MovieList from './displaymovies';
 import {
-    Card,CardBody,
+    Card,
+    CardBody,
     CardTitle,
-    CardColumns,
-    CardText,
-    Button
+    Button,
+    Row,
+    Col
 } from 'reactstrap';
 import EditMovie from './editmovie';
 
@@ -23,18 +24,23 @@ let fetchMovies = () => {
         "Authorization": props.sessionToken
     })
   })
-  .then((res) => res.json())
-  .then(data => {
-    setMovies(data)
-    // setMovies(movies.map(results =>(
+  .then(res => res.json())
+  .then(json => {
+    setMovies(json.map(movies => {
+      return <div key = {movies.id}>
+        <Row>
+          <Col>{ `${movies.title} (${movies.year})` }</Col>
+        </Row>
+      </div>
+    }))
     console.log(movies)
   })
   .catch(err => console.log(err))
 }
 
-// useEffect(()=> {
-//      fetchMovies()
-//    }, []) 
+useEffect(()=> {
+     fetchMovies()
+   }, [movies]) 
 
 
   return (
@@ -43,11 +49,8 @@ let fetchMovies = () => {
     <Card className="watchcard" style = {{color: 'white'}}>
       <CardBody>
         <CardTitle className="title" tag = "h5">My Watch List:</CardTitle>
-        <Button className="button" onClick={fetchMovies}>Display</Button>
+        <Button className="button" onClick={()=> fetchMovies()}>Display</Button>
       </CardBody>
-      <CardColumns>
-       <CardText> </CardText>
-      </CardColumns>
     </Card>
     </div>
     );
