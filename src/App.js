@@ -7,6 +7,7 @@ import Footer from'./components/footer';
 import Searchbar from "./components/searchbar";
 import Login from "./components/login";
 
+
 function App() {
   const [watchListToggle, setWatchListToggle] = useState(null)
   const [sessionToken, setSessionToken] = useState(undefined)
@@ -16,6 +17,7 @@ function App() {
       setSessionToken(localStorage.getItem("token"))
     }
   }, [])
+
   
 let watchListToggler = () => {
   setWatchListToggle(!watchListToggle)
@@ -24,11 +26,9 @@ let watchListToggler = () => {
 let logoToggler = () => {
   setWatchListToggle(false)
 }
-  
-  const updateLocalStorage = (newToken) => {
-    localStorage.getItem("token", newToken)
+  const updateLocalStorage = newToken => {
+    localStorage.setItem("token", newToken)
     setSessionToken(newToken)
-    console.log(sessionToken)
   }
 
   const clearSession = () => {
