@@ -8,7 +8,7 @@ const Login = props => {
     const [login, setLogin] = useState(true)
     
     const title = () => {
-        return !login ? "Signup" : "Login"
+        return !login ? "Signup" : "Welcome Back!"
     }
 
     const loginToggle = (e) => {
@@ -25,9 +25,8 @@ const Login = props => {
     const signupFields = () => !login ?
     (
         <div>
-            <label><b>Username:</b></label>
             <br />
-            <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)}/>
+            <input placeholder="username" type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)}/>
             <br />
         </div>
     ) : null
@@ -70,19 +69,17 @@ const Login = props => {
             <form className="login-container">
                 <h1>{title()}</h1>
                 {signupFields()}
-                <label htmlFor="email"><b>Email:</b></label>
                 <br />
-                <input type="text" id="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
-                <br />
-                <label htmlFor="password"><b>Password:</b></label>
-                <br />
-                <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                <input placeholder="email" type="text" id="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
                 <br />
                 <br />
-                <button className="button" type="submit" onClick={handleSubmit}><b>Submit</b></button>
+                <input placeholder="password" type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 <br />
                 <br />
-                <button className="button" onClick={loginToggle}><b>Login | Sign Up</b></button>
+                <button className="button login-button" type="submit" onClick={handleSubmit}><b>Submit</b></button>
+                <br />
+                <br />
+                <button className="button login-button" onClick={loginToggle}><b>Login | Sign Up</b></button>
             </form>
         </div>
     )
