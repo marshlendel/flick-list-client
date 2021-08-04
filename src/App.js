@@ -5,7 +5,7 @@ import WatchListNav from './components/navbar';
 import Footer from'./components/footer';
 import Searchbar from "./components/searchbar";
 import Login from "./components/login";
-import List from "./components/watchlist"
+// import List from "./components/watchlist"
 
 
 
@@ -39,10 +39,10 @@ function App() {
   
   return (
     <div className="App">
-    <WatchListNav clearSession = {clearLocalStorage} token={sessionToken}/>
-   {renderController()}
-   <List />
-   <Footer />
+      <WatchListNav clearSession = {clearLocalStorage} token={sessionToken}/>
+      {renderController()}
+      {/* <List /> */}
+      <Footer />
     </div>
   );
 }
