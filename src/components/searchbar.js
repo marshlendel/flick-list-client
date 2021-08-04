@@ -44,7 +44,7 @@ const Searchbar = (props) => {
         .then(json => {
             setSearchList(json.results.map(results => {
                return <div className="searchContainer" key={results.id}>
-                    <h3>{results.title}</h3>
+                    <h3><b>{results.title}</b></h3>
                     <p>{results.overview}</p>
                     <p>{results.release_date.slice(0, 4)}</p>
                     <img src={'https://image.tmdb.org/t/p/w200/' + results.poster_path} alt="Poster"/>
@@ -59,21 +59,19 @@ const Searchbar = (props) => {
 
 
     let inputValue = React.createRef();
-
+    
     
 return (
     <div>
     <Card className="searchCard">
         <CardBody>
-        <CardTitle tag="h2">Find movies for my watchlist:</CardTitle>
+        <CardTitle tag="h2"><b>Find movies for my watchlist:</b></CardTitle>
         </CardBody>
         <CardColumns>
         <input ref={inputValue} className="searchInput" type="text" placeholder="Search movies..."/>
         <Button className="button" onClick={() => dataFetch()}>Search</Button>
-        <br />
-        <br />
         </CardColumns>
-        <CardBody><CardText tag="h3"> Movie search results: {searchList}</CardText>
+        <CardBody><CardText tag="h3">{searchList}</CardText>
         <br />
         </CardBody>
     </Card>

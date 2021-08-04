@@ -18,7 +18,7 @@ const WatchListNav = (props) => {
     return (
 
       <div className="nav-container">
-         <Navbar dark navbar-expand="md">
+        <Navbar dark navbar-expand="md">
         <NavbarBrand><img onClick={() => props.logoToggler()}alt="logo" src={FlickLogo} height="200px" /></NavbarBrand>
           <Nav className="mr-auto" navbar>
             <NavItem>
