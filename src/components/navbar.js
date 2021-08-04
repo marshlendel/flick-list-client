@@ -33,7 +33,7 @@ const WatchListNav = (props) => {
             </NavItem>
           </Nav>
           <NavbarText>
-            <Logout clearSession={props.clearSession} />
+            <Link to="/"><Logout clearSession={props.clearSession} /></Link>
           </NavbarText>
         </Navbar>
         <Switch>
