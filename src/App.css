@@ -176,3 +176,7 @@ p {
   color: white;
 }
 
+::selection {
+  background-color: #a532b8;
+  color: white;
+}

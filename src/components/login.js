@@ -26,7 +26,7 @@ const Login = props => {
     (
         <div>
             <br />
-            <input placeholder="username" type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)}/>
+            <input required placeholder="username" type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)}/>
             <br />
         </div>
     ) : null
@@ -57,7 +57,9 @@ const Login = props => {
         })
         .then(response => response.json())
         .then(json => {
-            alert(json.message)
+            if(email && password){
+                alert(json.message)
+            }  
             props.updateLocalStorage(json.token)
         })
         .catch(err => console.log(err))
@@ -66,17 +68,17 @@ const Login = props => {
     return (
         <div>
             <br />
-            <form className="login-container">
+            <form className="login-container" onSubmit={(event) => {handleSubmit(event)}}>
                 <h1>{title()}</h1>
                 {signupFields()}
                 <br />
-                <input placeholder="email" type="text" id="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                <input placeholder="email" type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
                 <br />
                 <br />
-                <input placeholder="password" type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                <input placeholder="password" type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
                 <br />
                 <br />
-                <button className="button login-button" type="submit" onClick={handleSubmit}><b>Submit</b></button>
+                <button className="button login-button" type="submit"><b>Submit</b></button>
                 <br />
                 <br />
                 <button className="button login-button" onClick={loginToggle}><b>Login | Sign Up</b></button>
