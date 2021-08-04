@@ -4,7 +4,15 @@ import { Button, Row, Col } from "reactstrap";
 const DisplayList = (props) => {
   let [yourMovies, setYourMovies] = useState([]);
 
-  let deleteMovies = (data) => {
+  const refresh = () => {
+    window.location.reload();
+  };
+
+  let deleteMovies = (data, json) => {
+    if (json.length === 1) {
+      refresh();
+    }
+
     const fetch_url = `http://localhost:4000/list/delete/${data.id}`;
     fetch(fetch_url, {
       method: "DELETE",
@@ -37,8 +45,6 @@ const DisplayList = (props) => {
       .catch((err) => console.log(err));
   };
 
-
-
   let getMovies = () => {
     let url = "http://localhost:4000/list/";
 
@@ -54,9 +60,11 @@ const DisplayList = (props) => {
         setYourMovies(
           json.map((movies) => {
             let color = movies.watched ? "success" : "secondary";
-            console.log(movies.length)
             return (
-              <div style={{ margin: "10px 0" }} key={movies.id}>
+              <div
+                style={{ margin: "10px 0"}}
+                key={movies.id}
+              >
                 <Row>
                   <Col>{`${movies.title} (${movies.year})`}</Col>
                   <Col>
@@ -65,7 +73,10 @@ const DisplayList = (props) => {
                     </Button>
                   </Col>
                   <Col>
-                    <Button color="danger" onClick={() => deleteMovies(movies)}>
+                    <Button
+                      color="danger"
+                      onClick={() => deleteMovies(movies, json)}
+                    >
                       Delete
                     </Button>
                   </Col>
@@ -86,9 +97,7 @@ const DisplayList = (props) => {
     <div style={{ marginBottom: "50px", border: "1px solid white" }}>
       {/* <button class="button" onClick={() => getMovies()}>Display Movies</button> */}
       <h3 style={{ margin: "10px 0 50px 0" }}>Your Watch List</h3>
-    {
-      yourMovies
-    }
+      {yourMovies}
     </div>
   );
 };
