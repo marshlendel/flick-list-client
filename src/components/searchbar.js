@@ -70,6 +70,8 @@ return (
         <CardColumns>
         <input ref={inputValue} className="searchInput" type="text" placeholder="Search movies..."/>
         <Button className="button" onClick={() => dataFetch()}>Search</Button>
+        <br />
+        <br />
         </CardColumns>
         <CardBody><CardText tag="h3"> Movie search results: {searchList}</CardText>
         <br />
