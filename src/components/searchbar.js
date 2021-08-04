@@ -79,6 +79,8 @@ const Searchbar = (props) => {
         );
       })
       .catch((err) => console.log(err));
+
+      inputValue.current.value = ""
   };
 
   let inputValue = React.createRef();
