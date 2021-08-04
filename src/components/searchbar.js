@@ -8,7 +8,7 @@ import {
     Button
 } from 'reactstrap';
 
-const Search = (props) => {
+const Searchbar = (props) => {
     const [search, setSearch] = useState([])
     const [searchList, setSearchList] = useState([])
 
@@ -71,6 +71,8 @@ return (
         </CardBody>
         <CardColumns>
         <input ref={inputValue} className="searchInput" type="text" placeholder="Search movies..."/>
+        <br />
+        <br />
         <Button className="button" onClick={dataFetch}>Search</Button>
         </CardColumns>
         <CardBody><CardText tag="h3"> Movie search results: {searchList}</CardText>
@@ -81,4 +83,4 @@ return (
     );
 };
 
-export default Search;
+export default Searchbar;

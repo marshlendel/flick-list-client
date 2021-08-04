@@ -82,7 +82,3 @@ useEffect(()=> {
     </div>
     );
 };
-
-export default List;
-
-

@@ -3,9 +3,11 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import WatchListNav from './components/navbar';
 import Footer from'./components/footer';
-import Search from "./components/searchbar";
+import Searchbar from "./components/searchbar";
 import Login from "./components/login";
 import List from './components/watchlist';
+
+
 
 
 
@@ -33,7 +35,7 @@ function App() {
 
   const renderController = () => {
     return sessionToken !== undefined ?
-    <Search sessionToken={sessionToken}/>
+    <Searchbar sessionToken={sessionToken}/>
     : <Login updateLocalStorage= {updateLocalStorage} />
   }
   // const renderController = () => {
@@ -44,10 +46,10 @@ function App() {
   
   return (
     <div className="App">
-    <WatchListNav token={sessionToken}/>
-   {renderController()}
-   <List token = {sessionToken}/>
-   <Footer />
+      <WatchListNav clearSession = {clearLocalStorage} token={sessionToken}/>
+      {renderController()}
+      {/* <List /> */}
+      <Footer />
     </div>
   );
 }
