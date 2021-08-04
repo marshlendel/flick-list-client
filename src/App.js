@@ -6,6 +6,9 @@ import WatchListNav from './components/navbar';
 import Footer from'./components/footer';
 import Searchbar from "./components/searchbar";
 import Login from "./components/login";
+import {
+  BrowserRouter as Router
+} from "react-router-dom"
 
 
 function App() {
@@ -37,22 +40,24 @@ let logoToggler = () => {
     setSessionToken(undefined)
   }
 
-  const renderController = () => {
-  return watchListToggle === false ? <Searchbar sessionToken={sessionToken}/>
-   : <DisplayList sessionToken={sessionToken}/>
-  }
+  // const renderController = () => {
+  // return watchListToggle === false ? <Searchbar sessionToken={sessionToken}/>
+  //  : <DisplayList sessionToken={sessionToken}/>
+  // }
 
   return (   
     <div className="App">
-    <WatchListNav clearSession = {clearSession} token={sessionToken} toggler={watchListToggler} logoToggler={logoToggler}/>
+    <Router>
+    <WatchListNav  sessionToken={sessionToken} clearSession = {clearSession} token={sessionToken} toggler={watchListToggler} logoToggler={logoToggler}/>
+    </Router>
     {
       sessionToken === undefined &&
       <Login updateLocalStorage= {updateLocalStorage}/>
     }
-    {
+    {/* {
       (sessionToken) &&
       renderController()
-    }
+    } */}
     <Footer />
     </div>
   );

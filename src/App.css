@@ -31,16 +31,21 @@
 }
 /*Navbar*/
 .button {
-  background-color: transparent;
+  background-color: #a532b8;
+  width: 95px;
   color: white;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  border: 1px groove white;
+  border: 1px solid white;
   border-radius: 7%;
   padding: 5px;
   display: inline-block;
   font-size: 12pt;
+  transition: background-color 0.3s;
 }
 
+.button:hover {
+  background-color: #85038563;
+}
 img:hover {
   cursor: pointer;
 }

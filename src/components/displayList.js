@@ -82,7 +82,10 @@ const DisplayList = (props) => {
         <div style={{"marginBottom": "50px", "border": "1px solid white"}}>
         {/* <button class="button" onClick={() => getMovies()}>Display Movies</button> */}
         <h3 style={{"margin": "10px 0 50px 0"}}>Your Watch List</h3>
+        
+    
          { yourMovies}
+        
         </div>
     )
 }
