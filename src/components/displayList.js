@@ -56,7 +56,7 @@ const DisplayList = (props) => {
             setYourMovies(json.map(movies =>  {
 
                 let color = movies.watched ? "success" : "secondary"
-               return <div style={{"margin": "10px 0"}} key={movies.id}>
+                return <div style={{"margin": "10px 0"}} key={movies.id}>
                     <Row>
                     <Col>{`${movies.title} (${movies.year})`}</Col>
                     <Col><Button color={color} onClick={() => updateMovie(movies)}>
@@ -82,9 +82,9 @@ const DisplayList = (props) => {
         <div style={{"marginBottom": "50px", "border": "1px solid white"}}>
         {/* <button class="button" onClick={() => getMovies()}>Display Movies</button> */}
         <h3 style={{"margin": "10px 0 50px 0"}}>Your Watch List</h3>
-         { yourMovies}
+        { yourMovies}
         </div>
     )
 }
-   
+
 export default DisplayList
