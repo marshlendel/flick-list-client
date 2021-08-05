@@ -27,7 +27,7 @@ const Login = props => {
     (
         <div>
             <br />
-            <input required placeholder="username" type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)}/>
+            <input required minlength="4" placeholder="username" type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)}/>
             <br />
         </div>
     ) : null
@@ -76,7 +76,7 @@ const Login = props => {
                 <input placeholder="email" type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
                 <br />
                 <br />
-                <input placeholder="password" type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                <input minlength="5"placeholder="password" type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
                 <br />
                 <br />
                 <button className="button login-button" type="submit"><b>Submit</b></button>
