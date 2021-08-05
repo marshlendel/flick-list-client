@@ -107,7 +107,7 @@
   background-color: #350035;
 }
 
-img:hover {
+.logo:hover {
   cursor: pointer;
 }
 /*logout button*/

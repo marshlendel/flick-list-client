@@ -20,7 +20,7 @@ const WatchListNav = (props) => {
         <Navbar dark navbar-expand="md">
           <NavbarBrand>
             <Link to="/">
-              <img alt="logo" src={FlickLogo} height="200px" />
+              <img classname="logo" alt="logo" src={FlickLogo} height="200px" />
             </Link>
           </NavbarBrand>
           <Nav className="mr-auto" navbar>
