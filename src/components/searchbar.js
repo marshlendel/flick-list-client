@@ -10,12 +10,13 @@ import {
   CardColumns,
   Button,
 } from "reactstrap";
+import APIURL from "../helpers/environment";
 
 const Searchbar = (props) => {
   const [searchList, setSearchList] = useState([]);
 
   let addMovie = (data) => {
-    let url = "http://localhost:4000/list/add";
+    let url = `${APIURL}/list/add`;
     let watched = 0;
     let overview = data.overview.slice(0, 255);
     let year = Number(data.release_date.slice(0, 4));

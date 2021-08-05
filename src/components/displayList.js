@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button, Row, Col } from "reactstrap";
+import APIURL from "../helpers/environment";
 
 const DisplayList = (props) => {
   let [yourMovies, setYourMovies] = useState([]);
@@ -13,7 +14,7 @@ const DisplayList = (props) => {
       refresh();
     }
 
-    const fetch_url = `http://localhost:4000/list/delete/${data.id}`;
+    const fetch_url = `${APIURL}/list/delete/${data.id}`;
     fetch(fetch_url, {
       method: "DELETE",
       headers: new Headers({
@@ -29,7 +30,7 @@ const DisplayList = (props) => {
   };
 
   let updateMovie = (data) => {
-    let url = `http://localhost:4000/list/update/${data.id}`;
+    let url = `${APIURL}/list/update/${data.id}`;
     fetch(url, {
       method: "PUT",
       body: JSON.stringify({
@@ -46,7 +47,7 @@ const DisplayList = (props) => {
   };
 
   let getMovies = () => {
-    let url = "http://localhost:4000/list/";
+    let url = `${APIURL}/list/`;
 
     fetch(url, {
       method: "GET",

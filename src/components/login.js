@@ -1,5 +1,6 @@
 import React, {useState} from "react"
 import swal from "sweetalert"
+import APIURL from "../helpers/environment"
 
 //Login
 const Login = props => {
@@ -46,8 +47,8 @@ const Login = props => {
             }
 
         let url = login ?
-            "http://localhost:4000/user/login" :
-            "http://localhost:4000/user/register"
+            `${APIURL}/user/login` :
+            `${APIURL}/user/register`
 
         fetch(url, {
             method: "POST",
