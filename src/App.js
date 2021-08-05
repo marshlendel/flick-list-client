@@ -15,8 +15,10 @@ function App() {
   }, []);
 
   const updateLocalStorage = (newToken) => {
-    localStorage.setItem("token", newToken);
-    setSessionToken(newToken);
+    if(newToken !== undefined){
+      localStorage.setItem("token", newToken);
+      setSessionToken(newToken);
+    }
   };
 
   const clearSession = () => {
@@ -33,9 +35,9 @@ function App() {
           token={sessionToken}
         />
       </Router>
-      {sessionToken === undefined && (
+      {!sessionToken &&
         <Login updateLocalStorage={updateLocalStorage} />
-      )}
+      }
       <Footer />
     </div>
   );

@@ -1,6 +1,7 @@
 //import React from "react";
 import React from "react";
 import { useState } from "react";
+import swal from "sweetalert"
 import {
   Card,
   CardText,
@@ -34,7 +35,13 @@ const Searchbar = (props) => {
       }),
     })
       .then((res) => res.json())
-      .then((json) => alert(`${title} ${json.message}`))
+      .then((json) => {
+        if(json.message === "is already in your Watch List"){
+          swal({title: `${title} ${json.message}`, icon: "info"})
+        }else{
+          swal({title: `${title} added to Watch List`, icon: "success"})
+        }
+      })
       .catch((err) => console.log(err));
   };
 
@@ -79,7 +86,6 @@ const Searchbar = (props) => {
         );
       })
       .catch((err) => console.log(err));
-
       inputValue.current.value = ""
   };
 

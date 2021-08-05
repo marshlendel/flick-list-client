@@ -1,4 +1,5 @@
 import React, {useState} from "react"
+import swal from "sweetalert"
 
 //Login
 const Login = props => {
@@ -8,7 +9,7 @@ const Login = props => {
     const [login, setLogin] = useState(true)
     
     const title = () => {
-        return !login ? "Signup" : "Welcome Back!"
+        return !login ? "Sign Up" : "Welcome Back!"
     }
 
     const loginToggle = (e) => {
@@ -57,9 +58,9 @@ const Login = props => {
         })
         .then(response => response.json())
         .then(json => {
-            if(email && password){
-                alert(json.message)
-            }  
+            if(json.message !== "User successfully logged in!"){
+                swal({title: json.message, icon: "error"})
+            }
             props.updateLocalStorage(json.token)
         })
         .catch(err => console.log(err))
@@ -81,7 +82,9 @@ const Login = props => {
                 <button className="button login-button" type="submit"><b>Submit</b></button>
                 <br />
                 <br />
-                <button className="button login-button" onClick={loginToggle}><b>Login | Sign Up</b></button>
+                <button className="button login-button" onClick={loginToggle}><b>{
+                    login ? "Sign Up" : "Login"
+                }</b></button>
             </form>
         </div>
     )
