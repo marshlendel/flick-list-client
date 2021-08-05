@@ -58,7 +58,7 @@ const Login = props => {
         })
         .then(response => response.json())
         .then(json => {
-            if(json.message !== "User successfully logged in!"){
+            if(json.message !== "User successfully logged in!" && json.message !== "User successfully registered"){
                 swal({title: json.message, icon: "error"})
             }
             props.updateLocalStorage(json.token)
