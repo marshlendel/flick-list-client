@@ -5,7 +5,7 @@ switch (window.location.hostname) {
         APIURL = "http://localhost:4000";
         break;
     case "flick-list-client-mb.herokuapp.com/":
-        APIURL= "https://flick-list-client-mb.herokuapp.com/"
+        APIURL= "https://flick-list-mb.herokuapp.com/"
         break;
     default:
         //
